@@ -15,4 +15,14 @@ public class InputView {
         System.out.print("메뉴를 선택하세요 : ");
         return scanner.nextLine();
     }
+    
+    public String printIdInput() {
+        System.out.print("ID : ");
+        return scanner.nextLine();
+    }
+    
+    public String printPasswordInput() {
+        System.out.print("PW : ");
+        return scanner.nextLine();
+    }
 }
