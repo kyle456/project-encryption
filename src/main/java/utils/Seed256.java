@@ -751,14 +751,4 @@ public class Seed256 {
             return resultHash;
         }
     }
-
-//    public static void main(String args[]) {
-//        String str = "010-4333-xxxx";
-//
-//        System.out.println("## original : " + str);
-//        str = Encrypt(str);
-//        System.out.println("## encrypt : " + str);
-//        str = Decrypt(str);
-//        System.out.println("## decrypt : " + str);
-//    }
 }
