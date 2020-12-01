@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import utils.Seed256;
+
 public class Application {
     private static final String USER_INFO_TXT_PATH = "C:\\Users\\YOUNGJOO\\Desktop\\project_encryption\\src\\main\\resources\\userInfo.txt";
 
@@ -51,10 +53,14 @@ public class Application {
     public static void saveUserIDPassword(String id, String password) throws IOException {
         FileWriter fileWriter = new FileWriter(USER_INFO_TXT_PATH, true); // true argument는 이어서 쓰기를 가능하게 함
         PrintWriter printWriter = new PrintWriter(fileWriter);
-        String userInfo = id + "," + password;
-        printWriter.println(userInfo);
+
+        id = Seed256.Encrypt(id); // ID 암호화
+        password = Seed256.Encrypt(password); // Password 암호화
+        printWriter.println(id + "," + password);
         System.out.println("계정이 생성되었습니다.");
+
         printWriter.close();
+        fileWriter.close();
     }
 
     public static void logIn(InputView inputView) throws IOException {

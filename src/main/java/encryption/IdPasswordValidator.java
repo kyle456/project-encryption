@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import utils.Seed256;
+
 public class IdPasswordValidator {
     private static final String SPACE = " ";
     private static final String ENTER = "\\n";
@@ -39,7 +41,7 @@ public class IdPasswordValidator {
             if (line == null) {
                 break;
             }
-            existedId = line.split(SPLIT_REGEX_ID_PASSWORD)[ID];
+            existedId = Seed256.Decrypt(line.split(SPLIT_REGEX_ID_PASSWORD)[ID]); // ID 복호화
             if (id.equals(existedId)) {
                 bufferedReader.close();
                 throw new IllegalArgumentException("이미 생성된 계정입니다.");
@@ -61,8 +63,8 @@ public class IdPasswordValidator {
                 break;
             }
             splitedLine = line.split(SPLIT_REGEX_ID_PASSWORD);
-            checkId = splitedLine[ID];
-            checkPassword = splitedLine[PASSWORD];
+            checkId = Seed256.Decrypt(splitedLine[ID]); // ID 복호화
+            checkPassword = Seed256.Decrypt(splitedLine[PASSWORD]); // Password 복호화
             if (id.equals(checkId) && password.equals(checkPassword)) {
                 bufferedReader.close();
                 return;
