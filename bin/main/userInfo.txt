@@ -1,0 +1,8 @@
+lion,1234
+panda,5678
+tiger,0123
+snake,9456
+bear,0153
+fish,1234
+bird,0000
+zebra,9764
