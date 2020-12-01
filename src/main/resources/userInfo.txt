@@ -6,3 +6,4 @@ bear,0153
 fish,1234
 bird,0000
 zebra,9764
+penguin,1213

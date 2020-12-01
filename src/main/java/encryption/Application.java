@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Application {
+    private static final String USER_INFO_TXT_PATH = "C:\\Users\\YOUNGJOO\\Desktop\\project_encryption\\src\\main\\resources\\userInfo.txt";
+
     public static void main(String[] args) throws IOException {
         final Scanner scanner = new Scanner(System.in);
         final InputView inputView = new InputView(scanner);
@@ -39,28 +41,30 @@ public class Application {
             id = inputView.printIdInput();
             password = inputView.printPasswordInput();
             IdPasswordValidator.validateSignUp(id, password);
-            saveToUserInfoTxt(id, password);
+            saveUserIDPassword(id, password);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             signUp(inputView);
         }
     }
 
-    public static void saveToUserInfoTxt(String id, String password) throws IOException {
-        PrintWriter printWriter = new PrintWriter(new FileWriter(
-                "C:\\Users\\YOUNGJOO\\Desktop\\project_encryption\\src\\main\\resources\\userInfo.txt", true)); // true 시 추가 쓰기
+    public static void saveUserIDPassword(String id, String password) throws IOException {
+        FileWriter fileWriter = new FileWriter(USER_INFO_TXT_PATH, true); // true argument는 이어서 쓰기를 가능하게 함
+        PrintWriter printWriter = new PrintWriter(fileWriter);
         String userInfo = id + "," + password;
         printWriter.println(userInfo);
+        System.out.println("계정이 생성되었습니다.");
         printWriter.close();
     }
 
-    public static void logIn(InputView inputView) {
+    public static void logIn(InputView inputView) throws IOException {
         String id;
         String password;
         try {
             id = inputView.printIdInput();
             password = inputView.printPasswordInput();
             IdPasswordValidator.validateLogIn(id, password);
+            System.out.println("올바른 계정입니다.");
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             logIn(inputView);
