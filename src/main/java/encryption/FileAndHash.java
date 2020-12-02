@@ -27,18 +27,18 @@ public class FileAndHash {
         }
     }
 
-    public void printHashValue() throws NoSuchAlgorithmException, IOException {
+    public void searchFileHashValue() throws NoSuchAlgorithmException, IOException {
         try {
             String fileName = inputView.printFileNameInput();
             FileAndHashValidator.validateFile(fileName);
-            getHashValueOfFile(fileName);
+            printHashValue(fileName);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            printHashValue();
+            searchFileHashValue();
         }
     }
 
-    public void printModulationYesOrNo() throws NoSuchAlgorithmException, IOException {
+    public void searchModulationYesOrNo() throws NoSuchAlgorithmException, IOException {
         try {
             String fileName = inputView.printFileNameInput();
             String hashValue = inputView.printHashValueInput();
@@ -46,20 +46,12 @@ public class FileAndHash {
             FileAndHashValidator.checkSpace(hashValue);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            printHashValue();
+            searchModulationYesOrNo();
         }
     }
 
-    public void getHashValueOfFile(String fileName) throws NoSuchAlgorithmException, IOException {
-        File file = new File(PATH_OF_SEARCHING_FOLDER);
-        String[] fileNameList = file.list();
-        for (String eachFileName : fileNameList) {
-            if (fileName.equals(eachFileName)) {
-                String filePath = PATH_OF_SEARCHING_FOLDER + "/" + fileName;
-                System.out.println(fileName + "의 해시 값(md5)은 " + MD5.getHash(filePath));
-                return;
-            }
-        }
-        System.out.println("해당 파일이 존재하지 않습니다.");
+    public void printHashValue(String fileName) throws NoSuchAlgorithmException, IOException {
+        String filePath = PATH_OF_SEARCHING_FOLDER + "/" + fileName;
+        System.out.println(fileName + "의 해시 값(md5)은 " + MD5.getHash(filePath));
     }
 }

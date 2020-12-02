@@ -23,10 +23,10 @@ public class Application {
             
             String fileSystem = fileAndHash.selectMenu();
             if (fileSystem.equals("1")) {
-                fileAndHash.printHashValue();
+                fileAndHash.searchFileHashValue();
             }
             if (fileSystem.equals("2")) {
-                fileAndHash.printModulationYesOrNo();
+                fileAndHash.searchModulationYesOrNo();
             }
         }
     }

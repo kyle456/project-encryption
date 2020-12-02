@@ -24,9 +24,8 @@ public class FileAndHashValidatorTest {
         FileAndHashValidator.checkFileContainsExtensions("data");
     }
     
-    // 나중에 테스트
-//    @Test(expected = IllegalArgumentException.class)
-//    public void 파일_존재하지_않을시_예외발생() {
-//        FileValidator.checkFileExists("data.txt");
-//    }
+    @Test(expected = IllegalArgumentException.class)
+    public void 파일_존재하지_않을시_예외발생() {
+        FileAndHashValidator.checkFileExists("data.txt");
+    }
 }
