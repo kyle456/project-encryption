@@ -1,7 +1,5 @@
 package encryption;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class IdPasswordValidatorTest {

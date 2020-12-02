@@ -1,14 +1,16 @@
 package encryption;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class Application {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         final Scanner scanner = new Scanner(System.in);
         final InputView inputView = new InputView(scanner);
         final User user = new User(inputView);
-        final File file = new File(inputView);
+        final FileAndHash fileAndHash = new FileAndHash(inputView);
+
 
         while (true) {
 //            String userSystem = user.selectMenu();
@@ -18,13 +20,13 @@ public class Application {
 //            if (userSystem.equals("2")) {
 //                user.logIn();
 //            }
-
-            String fileSystem = file.selectMenu();
+            
+            String fileSystem = fileAndHash.selectMenu();
             if (fileSystem.equals("1")) {
-                file.printHashValue();
+                fileAndHash.printHashValue();
             }
             if (fileSystem.equals("2")) {
-                file.printModulationYesOrNo();
+                fileAndHash.printModulationYesOrNo();
             }
         }
     }

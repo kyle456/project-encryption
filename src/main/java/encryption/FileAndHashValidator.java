@@ -1,6 +1,6 @@
 package encryption;
 
-public class FileValidator {
+public class FileAndHashValidator {
     private static final String SPACE = " ";
     private static final String ENTER = "\\n";
 

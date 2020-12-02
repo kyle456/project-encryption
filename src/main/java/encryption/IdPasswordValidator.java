@@ -10,7 +10,7 @@ public class IdPasswordValidator {
     private static final String SPACE = " ";
     private static final String ENTER = "\\n";
     private static final String SPLIT_REGEX_ID_PASSWORD = ",";
-    private static final String USER_INFO_TXT_PATH = "C:\\Users\\YOUNGJOO\\Desktop\\project_encryption\\src\\main\\resources\\userInfo.txt";
+    private static final String FILE_PATH = "utilFiles/userInfo.txt";
 
     private static final int ID = 0;
     private static final int PASSWORD = 1;
@@ -32,7 +32,7 @@ public class IdPasswordValidator {
     }
 
     public static void checkIdDuplication(String id) throws IOException {
-        FileReader userInfo = new FileReader(USER_INFO_TXT_PATH);
+        FileReader userInfo = new FileReader(FILE_PATH);
         BufferedReader bufferedReader = new BufferedReader(userInfo);
         String line;
         String existedId;
@@ -51,7 +51,7 @@ public class IdPasswordValidator {
     }
 
     public static void checkIdPasswordIsCorrect(String id, String password) throws IOException {
-        FileReader userInfo = new FileReader(USER_INFO_TXT_PATH);
+        FileReader userInfo = new FileReader(FILE_PATH);
         BufferedReader bufferedReader = new BufferedReader(userInfo);
         String line;
         String[] splitedLine;

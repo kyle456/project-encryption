@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import utils.Seed256;
 
 public class User {
-    private static final String USER_INFO_TXT_PATH = "C:\\Users\\YOUNGJOO\\Desktop\\project_encryption\\src\\main\\resources\\userInfo.txt";
+    private static final String FILE_PATH = "utilFiles/userInfo.txt";
     private InputView inputView;
 
     User(InputView inputView) {
@@ -39,7 +39,7 @@ public class User {
     }
 
     public void saveUserIDPassword(String id, String password) throws IOException {
-        FileWriter fileWriter = new FileWriter(USER_INFO_TXT_PATH, true); // true argument는 이어서 쓰기를 가능하게 함
+        FileWriter fileWriter = new FileWriter(FILE_PATH, true); // 'true' argument는 이어서 쓰기를 가능하게 함
         PrintWriter printWriter = new PrintWriter(fileWriter);
 
         id = Seed256.Encrypt(id); // ID 암호화
