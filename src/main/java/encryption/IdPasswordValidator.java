@@ -8,7 +8,6 @@ import utils.Seed256;
 
 public class IdPasswordValidator {
     private static final String SPACE = " ";
-    private static final String ENTER = "\\n";
     private static final String SPLIT_REGEX_ID_PASSWORD = ",";
     private static final String FILE_PATH = "utilFiles/userInfo.txt";
 
@@ -26,8 +25,8 @@ public class IdPasswordValidator {
     }
 
     public static void checkIdPasswordContainsSpace(String id, String password) {
-        if (id.contains(SPACE) || id.contains(ENTER)) {
-            throw new IllegalArgumentException("ID 또는 Password에 공백이 입력되었습니다. 다시 입력해주세요.");
+        if (id.contains(SPACE) || password.contains(SPACE)) {
+            throw new IllegalArgumentException("ID 또는 Password에 공백이 입력되었습니다. 다시 입력해주세요.\n");
         }
     }
 
@@ -44,7 +43,7 @@ public class IdPasswordValidator {
             existedId = Seed256.Decrypt(line.split(SPLIT_REGEX_ID_PASSWORD)[ID]); // ID 복호화
             if (id.equals(existedId)) {
                 bufferedReader.close();
-                throw new IllegalArgumentException("이미 생성된 계정입니다.");
+                throw new IllegalArgumentException("이미 생성된 계정입니다.\n");
             }
         }
         bufferedReader.close();
@@ -71,6 +70,6 @@ public class IdPasswordValidator {
             }
         }
         bufferedReader.close();
-        throw new IllegalArgumentException("잘못된 계정입니다.");
+        throw new IllegalArgumentException("잘못된 계정입니다.\n");
     }
 }

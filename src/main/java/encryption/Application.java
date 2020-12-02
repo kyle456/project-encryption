@@ -67,7 +67,7 @@ public class Application {
                 fileAndHash.searchModulationYesOrNo();
                 break;
             case QUIT:
-                System.out.println("로그아웃 합니다.");
+                System.out.println("로그아웃 합니다.\n");
                 return;
             }
         }

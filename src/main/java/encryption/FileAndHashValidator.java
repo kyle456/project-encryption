@@ -4,7 +4,6 @@ import java.io.File;
 
 public class FileAndHashValidator {
     private static final String SPACE = " ";
-    private static final String ENTER = "\\n";
     private static final String PATH_OF_SEARCHING_FOLDER = "utilFiles";
 
     private static final char DOT = '.';
@@ -19,25 +18,25 @@ public class FileAndHashValidator {
 
     public static void checkFileContainsName(String fileName) {
         if (fileName.charAt(FIRST_CHARACTER) == DOT) {
-            throw new IllegalArgumentException("파일의 이름이 입력되지 않았습니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException("파일의 이름이 입력되지 않았습니다. 다시 입력해주세요.\n");
         }
     }
 
     public static void checkFileContainsExtensions(String fileName) {
         if (!fileName.contains(Character.toString(DOT))) {
-            throw new IllegalArgumentException("파일의 확장자가 입력되지 않았습니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException("파일의 확장자가 입력되지 않았습니다. 다시 입력해주세요.\n");
         }
     }
 
     public static void checkFileExists(String fileName) {
         if (!isFile(fileName)) {
-            throw new IllegalArgumentException("해당 파일이 존재하지 않습니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException("해당 파일이 존재하지 않습니다. 다시 입력해주세요.\n");
         }
     }
 
     public static void checkSpace(String input) {
-        if (input.contains(SPACE) || input.contains(ENTER)) {
-            throw new IllegalArgumentException("파일 혹은 해시 값에 공백이 입력되었습니다. 다시 입력해주세요.");
+        if (input.contains(SPACE)) {
+            throw new IllegalArgumentException("파일 혹은 해시 값에 공백이 입력되었습니다. 다시 입력해주세요.\n");
         }
     }
 

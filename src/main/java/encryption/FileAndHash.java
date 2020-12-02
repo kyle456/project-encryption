@@ -21,7 +21,6 @@ public class FileAndHash {
             printHashValue(fileName);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            searchFileHashValue();
         }
     }
 
@@ -34,21 +33,20 @@ public class FileAndHash {
             printModulation(fileName, hashValue);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            searchModulationYesOrNo();
         }
     }
 
     public void printHashValue(String fileName) throws NoSuchAlgorithmException, IOException {
         String filePath = PATH_OF_SEARCHING_FOLDER + "/" + fileName;
-        System.out.println(fileName + "의 해시 값(md5)은 " + MD5.getHash(filePath));
+        System.out.println(fileName + "의 해시 값(md5)은 " + MD5.getHash(filePath) + "\n");
     }
 
     public void printModulation(String fileName, String hashValue) throws NoSuchAlgorithmException, IOException {
         String filePath = PATH_OF_SEARCHING_FOLDER + "/" + fileName;
         if (hashValue.equals(MD5.getHash(filePath))) {
-            System.out.println("올바른 파일입니다.");
+            System.out.println("올바른 파일입니다.\n");
             return;
         }
-        System.out.println("해시 값이 다릅니다. 파일의 변조 가능성이 있습니다.");
+        System.out.println("해시 값이 다릅니다. 파일의 변조 가능성이 있습니다.\n");
     }
 }

@@ -22,7 +22,6 @@ public class User {
             saveUserIDPassword(id, password);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            signUp();
         }
     }
 
@@ -33,7 +32,7 @@ public class User {
         id = Seed256.Encrypt(id); // ID 암호화
         password = Seed256.Encrypt(password); // Password 암호화
         printWriter.println(id + "," + password);
-        System.out.println("계정이 생성되었습니다.");
+        System.out.println("계정이 생성되었습니다.\n");
 
         printWriter.close();
         fileWriter.close();
@@ -44,11 +43,11 @@ public class User {
             String id = inputView.printIdInput();
             String password = inputView.printPasswordInput();
             IdPasswordValidator.validateLogIn(id, password);
-            System.out.println("올바른 계정입니다.");
+            System.out.println("올바른 계정입니다. 파일 변조 확인 시스템으로 이동합니다.\n");
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return isLogIn();
+            return false;
         }
     }
 }

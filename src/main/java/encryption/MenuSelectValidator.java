@@ -7,7 +7,7 @@ public class MenuSelectValidator {
 
     public static void validateMenuSelectIsOneOrTwo(String menuSelect) {
         if (!menuSelect.equals(MENU_ONE) && !menuSelect.equals(MENU_TWO) && !menuSelect.equals(QUIT)) {
-            throw new IllegalArgumentException("1, 2, 3 중에서만 입력해야 합니다.");
+            throw new IllegalArgumentException("1, 2, 3 중에서만 입력해야 합니다.\n");
         }
     }
 }
