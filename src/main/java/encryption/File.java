@@ -35,7 +35,7 @@ public class File {
             String fileName = inputView.printFileNameInput();
             String hashValue = inputView.printHashValueInput();
             FileValidator.validateFile(fileName);
-            FileValidator.checkHashValueContainsSpace(hashValue);
+            FileValidator.checkSpace(hashValue);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             printHashValue();
