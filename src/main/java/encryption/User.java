@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import utils.Seed256;
+import validator.IdPasswordValidator;
 
 public class User {
     private static final String FILE_PATH = "utilFiles/userInfo.txt";

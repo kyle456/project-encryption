@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 import utils.MD5;
+import validator.FileAndHashValidator;
 
 public class FileAndHash {
     private static final String PATH_OF_SEARCHING_FOLDER = "utilFiles";

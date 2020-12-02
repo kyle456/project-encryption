@@ -2,7 +2,7 @@ package encryption;
 
 import java.util.Scanner;
 
-public class InputView {    
+public class InputView {
     private Scanner scanner;
 
     InputView(Scanner scanner) {

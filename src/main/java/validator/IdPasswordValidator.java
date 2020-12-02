@@ -1,4 +1,4 @@
-package encryption;
+package validator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

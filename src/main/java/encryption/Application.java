@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
+import validator.MenuSelectValidator;
+
 public class Application {
     private static final String MENU_ONE = "1";
     private static final String MENU_TWO = "2";

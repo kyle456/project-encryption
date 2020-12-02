@@ -1,4 +1,4 @@
-package encryption;
+package validator;
 
 public class MenuSelectValidator {
     private static final String MENU_ONE = "1";

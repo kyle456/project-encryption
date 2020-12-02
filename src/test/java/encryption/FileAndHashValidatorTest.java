@@ -2,6 +2,8 @@ package encryption;
 
 import org.junit.Test;
 
+import validator.FileAndHashValidator;
+
 public class FileAndHashValidatorTest {
 
     @Test(expected = IllegalArgumentException.class)
