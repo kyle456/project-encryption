@@ -12,6 +12,7 @@ public class InputView {
     public String printUserMenu() {
         System.out.println("1. 회원 가입");
         System.out.println("2. 로그인");
+        System.out.println("3. 프로그램 종료");
         System.out.print("메뉴를 선택하세요 : ");
         return scanner.nextLine();
     }
@@ -19,6 +20,7 @@ public class InputView {
     public String printFileMenu() {
         System.out.println("1. 파일 해시값 표시");
         System.out.println("2. 변조 여부 확인");
+        System.out.println("3. 로그아웃");
         System.out.print("메뉴를 선택하세요 : ");
         return scanner.nextLine();
     }

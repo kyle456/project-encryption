@@ -14,18 +14,6 @@ public class FileAndHash {
         this.inputView = inputView;
     }
 
-    public String selectMenu() {
-        String menuSelect;
-        try {
-            menuSelect = inputView.printFileMenu();
-            MenuSelectValidator.validateMenuSelectIsOneOrTwo(menuSelect);
-            return menuSelect;
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return selectMenu();
-        }
-    }
-
     public void searchFileHashValue() throws NoSuchAlgorithmException, IOException {
         try {
             String fileName = inputView.printFileNameInput();

@@ -14,18 +14,6 @@ public class User {
         this.inputView = inputView;
     }
 
-    public String selectMenu() {
-        String menuSelect;
-        try {
-            menuSelect = inputView.printUserMenu();
-            MenuSelectValidator.validateMenuSelectIsOneOrTwo(menuSelect);
-            return menuSelect;
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return selectMenu();
-        }
-    }
-
     public void signUp() throws IOException {
         try {
             String id = inputView.printIdInput();
@@ -51,15 +39,16 @@ public class User {
         fileWriter.close();
     }
 
-    public void logIn() throws IOException {
+    public boolean isLogIn() throws IOException {
         try {
             String id = inputView.printIdInput();
             String password = inputView.printPasswordInput();
             IdPasswordValidator.validateLogIn(id, password);
             System.out.println("올바른 계정입니다.");
+            return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            logIn();
+            return isLogIn();
         }
     }
 }

@@ -5,7 +5,7 @@ import org.junit.Test;
 public class MenuSelectValidatorTest {   
     @Test(expected = IllegalArgumentException.class)
     public void 다른숫자_입력시_예외발생() {
-        MenuSelectValidator.validateMenuSelectIsOneOrTwo("3");
+        MenuSelectValidator.validateMenuSelectIsOneOrTwo("9");
     }
     
     @Test(expected = IllegalArgumentException.class)
