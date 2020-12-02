@@ -1,6 +1,5 @@
 package encryption;
 
-import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
@@ -44,6 +43,7 @@ public class FileAndHash {
             String hashValue = inputView.printHashValueInput();
             FileAndHashValidator.validateFile(fileName);
             FileAndHashValidator.checkSpace(hashValue);
+            printModulation(fileName, hashValue);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             searchModulationYesOrNo();
@@ -53,5 +53,14 @@ public class FileAndHash {
     public void printHashValue(String fileName) throws NoSuchAlgorithmException, IOException {
         String filePath = PATH_OF_SEARCHING_FOLDER + "/" + fileName;
         System.out.println(fileName + "의 해시 값(md5)은 " + MD5.getHash(filePath));
+    }
+
+    public void printModulation(String fileName, String hashValue) throws NoSuchAlgorithmException, IOException {
+        String filePath = PATH_OF_SEARCHING_FOLDER + "/" + fileName;
+        if (hashValue.equals(MD5.getHash(filePath))) {
+            System.out.println("올바른 파일입니다.");
+            return;
+        }
+        System.out.println("해시 값이 다릅니다. 파일의 변조 가능성이 있습니다.");
     }
 }

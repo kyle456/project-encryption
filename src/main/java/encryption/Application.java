@@ -11,7 +11,6 @@ public class Application {
         final User user = new User(inputView);
         final FileAndHash fileAndHash = new FileAndHash(inputView);
 
-
         while (true) {
 //            String userSystem = user.selectMenu();
 //            if (userSystem.equals("1")) {
@@ -20,7 +19,7 @@ public class Application {
 //            if (userSystem.equals("2")) {
 //                user.logIn();
 //            }
-            
+
             String fileSystem = fileAndHash.selectMenu();
             if (fileSystem.equals("1")) {
                 fileAndHash.searchFileHashValue();

@@ -2,8 +2,6 @@ package encryption;
 
 import java.io.File;
 
-import utils.MD5;
-
 public class FileAndHashValidator {
     private static final String SPACE = " ";
     private static final String ENTER = "\\n";
@@ -42,7 +40,7 @@ public class FileAndHashValidator {
             throw new IllegalArgumentException("파일 혹은 해시 값에 공백이 입력되었습니다. 다시 입력해주세요.");
         }
     }
-    
+
     private static boolean isFile(String fileName) {
         File file = new File(PATH_OF_SEARCHING_FOLDER);
         String[] fileNameList = file.list();
